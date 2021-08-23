@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Icon(Icons.password_rounded, size: 50.0,),
             Text(
               'No Passwords Added',
-              style: TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: 'SF'),
             ),
             Text(
               "Click on the '+' icon to add",

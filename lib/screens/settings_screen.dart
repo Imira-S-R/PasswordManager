@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_manager/screens/security_screen.dart';
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
@@ -105,6 +106,28 @@ class Settings extends StatelessWidget {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20.0),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10.0,),
+                      GestureDetector(
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SecurityScreen())),
+                        child: Container(
+                          height: 60.0,
+                          width: MediaQuery.of(context).size.width - 10.0,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7.0),
+                              color: Colors.grey[200],),
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(10.0, 18.0, 10.0, 10.0),
+                            child: Text(
+                              'Security',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.0),
+                            ),
                           ),
                         ),
                       ),
