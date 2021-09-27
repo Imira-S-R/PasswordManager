@@ -10,6 +10,17 @@ If There Is Any Problem Let Me Know.<br />
 <br />
 [Read More About The App In Our Website](https://ipntechteam.wordpress.com/2021/08/28/managemypasswords)
 
+## Quickstart
+
+```js
+import { createApp } from 'vue';
+import { Button } from 'vant';
+import 'vant/lib/index.css';
+
+const app = createApp();
+app.use(Button);
+```
+
 ## Version History
 | Version | Description          |
 | ------- | ---------------------|
