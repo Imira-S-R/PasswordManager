@@ -1,6 +1,6 @@
 # ManageMyPasswords
 
-## Entire Project Created By Imira Randeniya. <br />
+## Entire Project Created By Imira Randeniya.
 
 Password Manager Created Using Flutter.<br />
 More Features Will Be Added Soon.<br />
