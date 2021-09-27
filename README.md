@@ -3,6 +3,7 @@
 Password Manager Created Using Flutter.<br />
 More Features Will Be Added Soon.<br />
 If There Is Any Problem Let Me Know.<br />
+The app is available to download in the galaxy store for FREE - https://galaxystore.samsung.com/detail/com.example.password_manager <br />
 
 ## Version History
 Version 1.0.0 - Initial Version<br />
