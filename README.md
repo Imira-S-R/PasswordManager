@@ -7,7 +7,7 @@ If There Is Any Problem Let Me Know.<br />
 The app is available to download in the galaxy store for FREE - https://galaxystore.samsung.com/detail/com.example.password_manager <br />
 
 ## Version History
-| Version | Supported            |
+| Version | Description          |
 | ------- | ---------------------|
 | 1.0.0   | Initial Vserion      |
 | 1.5.0   | Added login Password |
