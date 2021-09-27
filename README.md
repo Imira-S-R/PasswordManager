@@ -5,6 +5,8 @@ More Features Will Be Added Soon.<br />
 If There Is Any Problem Let Me Know.<br />
 <br />
 The app is available to download in the galaxy store for FREE - https://galaxystore.samsung.com/detail/com.example.password_manager <br />
+<br />
+Read more about the app - https://ipntechteam.wordpress.com/2021/08/28/managemypasswords/ <br />
 
 ## Version History
 | Version | Description          |
