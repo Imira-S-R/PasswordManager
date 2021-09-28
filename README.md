@@ -1,23 +1,27 @@
 # ManageMyPasswords
+ManageMyPasswords is a free, fast, simple and secure password manager you can use to store all of your passwords securely.
+The app updates regularly and the latest version is available in the [Galaxy Store](https://galaxystore.samsung.com/detail/com.example.password_manager).
 
-## Entire Project Created By Imira Randeniya.
+## Features
+- The whole app is FREE, you can add unlimited number of passwords and there are NO ADS.
+- The app is also SECURE it stores all of your information securely.
+- Another step we took to make the app more secure is to make the app offline. None of the features in the app require an internet connection, because of that it makes the app     more and more secure.
+- The app is FAST so that you can run this app on any device.
+- The app design is simple so that anyone can use this app.
 
-Password Manager Created Using Flutter.<br />
-More Features Will Be Added Soon.<br />
-If There Is Any Problem Let Me Know.<br />
-<br />
-[The App Is Available To Download For FREE In Galaxy Store](https://galaxystore.samsung.com/detail/com.example.password_manager)
-<br />
-[Read More About The App In Our Website](https://ipntechteam.wordpress.com/2021/08/28/managemypasswords)
+## Getting Started
+Prerequisites:
+- You should have [Flutter](https://flutter.dev) installed in your computer.
+- You also need to have a code editor like [Visual Studio Code](https://code.visualstudio.com).
+- Get the code,
+```js
 
-## Quickstart
-If you want run this Flutter Project on your computer. Install Flutter by using the documentation on [Flutter Webpage](https://flutter.dev) after that run it
+git clone https://github.com/Imira-S-R/PasswordManager
+
+```
+- Run the project
 ```js
 flutter run
 ```
-
-## Version History
-| Version | Description          |
-| ------- | ---------------------|
-| 1.0.0   | Initial Vserion      |
-| 1.5.0   | Added login Password |
+## About
+The whole app is created by Imira Randeniya.
