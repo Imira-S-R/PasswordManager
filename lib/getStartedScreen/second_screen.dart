@@ -15,6 +15,8 @@ class _SecondScreenState extends State<SecondScreen> {
       "This is the password you have to remember to access this app. You will be asked to enter this password each time you open the app. But, if you don't like it you can disable it";
   bool requiredLogin = true;
   TextEditingController masterPassword = TextEditingController();
+  String _message =
+      'When enabled, it will ask you to enter the master password every time you open the app.';
 
   String getText() {
     if (requiredLogin == true) {
@@ -71,96 +73,79 @@ class _SecondScreenState extends State<SecondScreen> {
               SizedBox(
                 height: 10.0,
               ),
-              Text(
-                'Require Master Password Every Time You Open The App? ${getText().toString()}',
-                style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+              Container(
+                height: 60.0,
+                width: MediaQuery.of(context).size.width - 10.0,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8.0)),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Require Login At Startup',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18.0),
+                      ),
+                      Switch(
+                        value: requiredLogin,
+                        onChanged: (value) {
+                          setState(() {
+                            requiredLogin = value;
+                          });
+                        },
+                        activeTrackColor: Colors.green[500],
+                        activeColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
               ),
               SizedBox(
-                height: 10.0,
+                height: 5.0,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        requiredLogin = true;
-                      });
-                    },
-                    child: Container(
-                      height: 50.0,
-                      width: 100.0,
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(70.0)),
-                      child: Center(
-                        child: Text(
-                          'Yes',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        requiredLogin = false;
-                      });
-                    },
-                    child: Container(
-                      height: 50.0,
-                      width: 100.0,
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(70.0)),
-                      child: Center(
-                        child: Text(
-                          'No',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ),
+                  Flexible(child: Text(_message, maxLines: 3)),
                 ],
               ),
-              SizedBox(height: 20.0,),
+              SizedBox(
+                height: 30.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  GestureDetector(
-                    onTap: (){
-                      var user = User(loginRequired: requiredLogin, masterpswd: masterPassword.text);
-                      UserDatabase.instance.create(user);
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
-                    },
-                    child: Container(
-                      height: 60.0,
-                      width: 200.0,
-                      decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(80.0)),
-                      child: Center(
-                        child: Text(
-                          'Done',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: GestureDetector(
+                      onTap: () {
+                        var user = User(
+                            loginRequired: requiredLogin,
+                            masterpswd: masterPassword.text);
+                        UserDatabase.instance.create(user);
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (_) => HomeScreen()));
+                      },
+                      child: Container(
+                        height: 60.0,
+                        width: 200.0,
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(80.0)),
+                        child: Center(
+                          child: Text(
+                            'Done',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     ),

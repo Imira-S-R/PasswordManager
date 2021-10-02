@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/user_database.dart';
 import 'package:password_manager/model/user_info_model.dart';
+import 'package:password_manager/screens/master_password_screen.dart';
 
 class SecurityScreen extends StatefulWidget {
   const SecurityScreen({Key? key}) : super(key: key);
@@ -10,11 +11,11 @@ class SecurityScreen extends StatefulWidget {
 }
 
 class _SecurityScreenState extends State<SecurityScreen> {
-
-
   late List<User> users = [];
   bool isLoading = false;
   String status = '';
+  String _message =
+      'When enabled, it will ask you to enter the master password every time you open the app.';
 
   @override
   void initState() {
@@ -45,15 +46,14 @@ class _SecurityScreenState extends State<SecurityScreen> {
       return 'No';
     }
   }
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[100],
         centerTitle: true,
         title: Text(
           'Security',
@@ -71,74 +71,83 @@ class _SecurityScreenState extends State<SecurityScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text(
-              'Require Master Password Every Time You Open The App? ${getText().toString()}',
-              style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold),
+            Container(
+              height: 60.0,
+              width: MediaQuery.of(context).size.width - 10.0,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8.0)),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Require Login At Startup',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18.0),
+                    ),
+                    Switch(
+                      value: users[0].loginRequired,
+                      onChanged: (value) {
+                        setState(() {
+                          UserDatabase.instance.update(User(
+                              loginRequired: value,
+                              masterpswd: users[0].masterpswd,
+                              id: users[0].id));
+                          refreshNotes();
+                        });
+                      },
+                      activeTrackColor: Colors.green[500],
+                      activeColor: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
             ),
             SizedBox(
               height: 10.0,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    var user = User(loginRequired: true, masterpswd: users[0].masterpswd, id: users[0].id);
-                    UserDatabase.instance.update(user);
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    height: 50.0,
-                    width: 100.0,
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(70.0)),
-                    child: Center(
-                      child: Text(
-                        'Yes',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    var user = User(loginRequired: false, masterpswd: users[0].masterpswd, id: users[0].id);
-                    UserDatabase.instance.update(user);
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    height: 50.0,
-                    width: 100.0,
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(70.0)),
-                    child: Center(
-                      child: Text(
-                        'No',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
+                Flexible(child: Text(_message, maxLines: 3)),
               ],
             ),
             SizedBox(
-              height: 50.0,
+              height: 10.0,
+            ),
+            Divider(
+              height: 10.0,
+              color: Colors.grey,
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            GestureDetector(
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => MasterPasswordScreen())),
+              child: Container(
+                height: 60.0,
+                width: MediaQuery.of(context).size.width - 10.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7.0),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(10.0, 18.0, 10.0, 10.0),
+                  child: Text(
+                    'Master Password',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20.0),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:password_manager/getStartedScreen/second_screen.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -28,14 +29,14 @@ class _FirstScreenState extends State<FirstScreen> {
               'Welcome To,',
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 30.0,
+                  fontSize: 24.0,
                   fontWeight: FontWeight.bold),
             ),
             Text(
               'Manage My Passwords',
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 30.0,
+                  fontSize: 24.0,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -45,24 +46,27 @@ class _FirstScreenState extends State<FirstScreen> {
               'Free, Fast, Secure & Offline Password Manager.',
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 25.0,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w500),
+            ),
+            Text(
+              'This App Will Securely Strore Your Passwords.',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.w500),
             ),
             SizedBox(
-              height: 10.0,
+              height: 8.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.security_rounded,
-                  color: Colors.white,
-                  size: 150.0,
-                ),
+                Lottie.asset('assets/password.json', height: 280.0),
               ],
             ),
             SizedBox(
-              height: 20.0,
+              height: MediaQuery.of(context).size.height - 600.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

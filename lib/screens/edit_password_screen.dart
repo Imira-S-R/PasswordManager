@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/password_database.dart';
 import 'package:password_manager/model/password_model.dart';
@@ -46,12 +47,13 @@ class _EditTaskState extends State<EditTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0.0,
           backgroundColor: Colors.white,
           centerTitle: false,
           title: Text(
-            'Edit Task',
+            'Edit Password',
             style: TextStyle(color: Colors.black),
           ),
           leading: IconButton(
@@ -63,47 +65,108 @@ class _EditTaskState extends State<EditTask> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextFormField(
-                maxLength: 60,
-                initialValue: widget.title,
-                onChanged: (value) {
-                  title.text = value;
-                },
-                decoration: InputDecoration(
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
-                    ),
-                    hintText: 'Title'),
+              SizedBox(
+                height: 8.0,
               ),
-              TextFormField(
-                maxLength: 60,
-                initialValue: widget.username,
-                onChanged: (value) {
-                  username.text = value;
-                },
-                decoration: InputDecoration(
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
-                    ),
-                    hintText: 'Username'),
+              Text(
+                'Website Name',
+                style: TextStyle(
+                    color: Colors.black45,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w500),
               ),
-              TextFormField(
-                maxLength: 60,
-                initialValue: widget.password,
-                onChanged: (value) {
-                  password.text = value;
-                },
-                decoration: InputDecoration(
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+              SizedBox(
+                height: 5.0,
+              ),
+              Container(
+                height: 75.0,
+                width: MediaQuery.of(context).size.width - 40.0,
+                child: TextFormField(
+                  maxLength: 60,
+                  initialValue: widget.title,
+                  onChanged: (value) {
+                    title.text = value;
+                  },
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.title,
+                      size: 24,
                     ),
-                    hintText: 'Password'),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                  ),
+                ),
               ),
               SizedBox(
                 height: 10.0,
+              ),
+              Text(
+                'Username/Email',
+                style: TextStyle(
+                    color: Colors.black45,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w500),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Container(
+                height: 75.0,
+                width: MediaQuery.of(context).size.width - 40.0,
+                child: TextFormField(
+                  maxLength: 60,
+                  initialValue: widget.username,
+                  onChanged: (value) {
+                    username.text = value;
+                  },
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.email,
+                      size: 24,
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                'Password',
+                style: TextStyle(
+                    color: Colors.black45,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w500),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Container(
+                height: 75.0,
+                width: MediaQuery.of(context).size.width - 40.0,
+                child: TextFormField(
+                  maxLength: 60,
+                  initialValue: widget.password,
+                  onChanged: (value) {
+                    password.text = value;
+                  },
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.password_rounded,
+                      size: 24,
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
               ),
               GestureDetector(
                 onTap: () {
@@ -177,20 +240,24 @@ class _EditTaskState extends State<EditTask> {
                   }
                 },
                 child: Container(
-                  height: 50.0,
-                  width: 100.0,
+                  height: 60.0,
+                  width: MediaQuery.of(context).size.width - 40.0,
                   decoration: BoxDecoration(
-                      color: Colors.green,
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Color(0xffFF0021), Color(0xffB8041B)]),
                       borderRadius: BorderRadius.circular(8.0)),
                   child: Center(
-                      child: Text(
-                    'Done',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
-                  )),
+                    child: Text(
+                      'Save Password',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
                 ),
               ),
             ],

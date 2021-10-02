@@ -1,0 +1,148 @@
+import 'package:flutter/material.dart';
+import 'package:password_manager/db/user_database.dart';
+import 'package:password_manager/edit_master_password/second_screen.dart';
+import 'package:password_manager/getStartedScreen/second_screen.dart';
+import 'package:password_manager/model/user_info_model.dart';
+
+class FirstEditScreen extends StatefulWidget {
+  const FirstEditScreen({Key? key}) : super(key: key);
+
+  @override
+  _FirstEditScreenState createState() => _FirstEditScreenState();
+}
+
+class _FirstEditScreenState extends State<FirstEditScreen> {
+  TextEditingController masterPassword = TextEditingController();
+
+  late List<User> users;
+  bool isLoading = false;
+  String status = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    refreshNotes();
+  }
+
+  Future refreshNotes() async {
+    setState(() => isLoading = true);
+
+    this.users = await UserDatabase.instance.readAllNotes();
+
+    setState(() => isLoading = false);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black,
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(20.0, 0.0, 10.0, 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Change Password',
+              style: TextStyle(
+                  color: Colors.blue[900],
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+                'Enter your current master password to change your master password.',
+                style: TextStyle(
+                    color: Colors.grey[800],
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0)),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              'Enter Master Password',
+              style: TextStyle(
+                  color: Colors.grey[800],
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 5.0,
+            ),
+            Container(
+              height: 80.0,
+              width: MediaQuery.of(context).size.width - 50.0,
+              child: TextField(
+                maxLength: 60,
+                controller: masterPassword,
+                onSubmitted: (value) {
+                  masterPassword.text = value;
+                },
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.password_rounded),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    hintText: 'Enter Master Password'),
+              ),
+            ),
+            SizedBox(height: 10.0),
+            GestureDetector(
+              onTap: () {
+                if (masterPassword.text == users[0].masterpswd) {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (_) => SecondEditScreen()));
+                } else {
+                  setState(() {
+                    status = 'Incorrect Password';
+                  });
+                }
+              },
+              child: Container(
+                height: 55.0,
+                width: MediaQuery.of(context).size.width - 50.0,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xffD80320), Color(0xffFF0022)]),
+                    borderRadius: BorderRadius.circular(8.0)),
+                child: Center(
+                    child: Text(
+                  'Done',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold),
+                )),
+              ),
+            ),
+            SizedBox(height: 5.0,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  status,
+                  style: TextStyle(color: Colors.red[900]),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

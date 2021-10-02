@@ -43,101 +43,112 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'ManageMyPasswords',
-              style: TextStyle(
-                  color: Colors.blue[900],
-                  fontSize: 26.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Text(
-              'Welcome Back, ',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              'Enter Master Password',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 26.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            TextField(
+          child: Column(
+        children: [
+          SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            'ManageMyPasswords',
+            style: TextStyle(
+                color: Colors.blue[800],
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.security,
+                color: Colors.red,
+                size: 100.0,
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            'Welcome back!',
+            style: TextStyle(
+                color: Colors.blue[900],
+                fontWeight: FontWeight.bold,
+                fontSize: 22.0),
+          ),
+          Text(
+            'Log in to continue.',
+            style: TextStyle(
+                color: Colors.blue[900],
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Container(
+            height: 80.0,
+            width: MediaQuery.of(context).size.width - 50.0,
+            child: TextField(
               maxLength: 60,
               controller: masterPassword,
               onSubmitted: (value) {
                 masterPassword.text = value;
               },
               decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
-                  hintText: 'Enter Master Password'),
+                  prefixIcon: Icon(Icons.password_rounded),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0)),
+                  hintText: 'Enter Your Password'),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  status,
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0),
-                ),
-              ],
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          GestureDetector(
+            onTap: () {
+              if (masterPassword.text == users[0].masterpswd) {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => HomeScreen()));
+              } else {
+                setState(() {
+                  status = 'Incorrect Password';
+                });
+              }
+            },
+            child: Container(
+              height: 55.0,
+              width: MediaQuery.of(context).size.width - 50.0,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0xffD80320), Color(0xffFF0022)]),
+                  borderRadius: BorderRadius.circular(8.0)),
+              child: Center(
+                  child: Text(
+                'Log In',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold),
+              )),
             ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    if (masterPassword.text == users[0].masterpswd) {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (_) => HomeScreen()));
-                    } else {
-                      setState(() {
-                        status = 'Incorrect Password';
-                      });
-                    }
-                  },
-                  child: Container(
-                    height: 50.0,
-                    width: 100.0,
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(70.0)),
-                    child: Center(
-                      child: Text(
-                        'Login',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+          ),
+          SizedBox(height: 5.0,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                status,
+                style: TextStyle(color: Colors.red[900]),
+              ),
+            ],
+          )
+        ],
       )),
     );
   }

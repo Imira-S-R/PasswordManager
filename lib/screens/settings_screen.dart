@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:password_manager/screens/about_screen.dart';
+import 'package:password_manager/screens/password_report_screen.dart';
 import 'package:password_manager/screens/security_screen.dart';
 
 class Settings extends StatelessWidget {
@@ -9,6 +11,7 @@ class Settings extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.blue[900],
         appBar: AppBar(
+          brightness: Brightness.dark,
           elevation: 0.0,
           backgroundColor: Colors.blue[900],
           leading: IconButton(
@@ -27,115 +30,152 @@ class Settings extends StatelessWidget {
           centerTitle: true,
         ),
         body: Column(
-          children: <Widget>[
+          children: [
             Expanded(
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.0),
-                        topRight: Radius.circular(30.0)),
-                    color: Colors.white),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Manage My Passwords',
-                            style: TextStyle(
-                              color:
-                                  Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 28.0,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      Container(
-                          height: 60.0,
-                          width: MediaQuery.of(context).size.width - 10.0,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(8.0)),
-                            color: Colors.grey[200],
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text(
-                                  'Version',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 20.0),
-                                ),
-                                Text(
-                                  '1.5.0',
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 20.0),
-                                ),
-                              ],
-                            ),
-                          )),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Container(
+                child: Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0))),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    // GestureDetector(
+                    //   onTap: () => Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (_) => PasswordReportScreen())),
+                    //   child: Container(
+                    //     height: 60.0,
+                    //     width: MediaQuery.of(context).size.width - 10.0,
+                    //     decoration: BoxDecoration(
+                    //         color: Colors.white,
+                    //         borderRadius: BorderRadius.circular(8.0)),
+                    //     child: Padding(
+                    //       padding: const EdgeInsets.all(8.0),
+                    //       child: Row(
+                    //         children: [
+                    //           Icon(
+                    //             Icons.health_and_safety_outlined,
+                    //             color: Colors.black,
+                    //             size: 30.0,
+                    //           ),
+                    //           SizedBox(
+                    //             width: 10.0,
+                    //           ),
+                    //           Expanded(
+                    //             child: Row(
+                    //               mainAxisAlignment:
+                    //                   MainAxisAlignment.spaceBetween,
+                    //               children: [
+                    //                 Text(
+                    //                   'Password Health',
+                    //                   style: TextStyle(
+                    //                       color: Colors.black, fontSize: 21.0),
+                    //                 ),
+                    //                 Icon(Icons.arrow_forward_ios_rounded)
+                    //               ],
+                    //             ),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    SizedBox(height: 10.0,),
+                    GestureDetector(
+                      onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => SecurityScreen())),
+                      child: Container(
                         height: 60.0,
                         width: MediaQuery.of(context).size.width - 10.0,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(7.0),
-                            color: Colors.grey[200],),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.0)),
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(10.0, 18.0, 10.0, 10.0),
-                          child: Text(
-                            'Created By Imira Randeniya',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.security_rounded,
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20.0),
+                                size: 30.0,
+                              ),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Security',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 24.0),
+                                    ),
+                                    Icon(Icons.arrow_forward_ios_rounded)
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(height: 10.0,),
-                      GestureDetector(
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SecurityScreen())),
-                        child: Container(
-                          height: 60.0,
-                          width: MediaQuery.of(context).size.width - 10.0,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(7.0),
-                              color: Colors.grey[200],),
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(10.0, 18.0, 10.0, 10.0),
-                            child: Text(
-                              'Security',
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20.0),
-                            ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    GestureDetector(
+                      onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => AboutScreen())),
+                      child: Container(
+                        height: 60.0,
+                        width: MediaQuery.of(context).size.width - 10.0,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.info_outline_rounded,
+                                color: Colors.black,
+                                size: 30.0,
+                              ),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'About',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 24.0),
+                                    ),
+                                    Icon(Icons.arrow_forward_ios_rounded)
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
-            ),
+            ))
           ],
         ));
   }
