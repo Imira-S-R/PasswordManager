@@ -221,43 +221,6 @@ class _PasswordViewerState extends State<PasswordViewer> {
                 fontSize: 26.0,
               ),
             ),
-            // Container(
-            //   height: 60.0,
-            //   width: MediaQuery.of(context).size.width - 50.0,
-            //   decoration: BoxDecoration(
-            //       color: Colors.grey[100],
-            //       borderRadius: BorderRadius.circular(8.0)),
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(8.0),
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Text(
-            //           'Password Strength',
-            //           style: TextStyle(
-            //               color: Colors.white,
-            //               fontSize: 20.0,
-            //               fontWeight: FontWeight.w800),
-            //         ),
-            //         Container(
-            //           height: 50.0,
-            //           width: MediaQuery.of(context).size.width - 270.0,
-            //           decoration: BoxDecoration(
-            //               color: widget.password.length < 8 ? Colors.red : Colors.green,
-            //               borderRadius: BorderRadius.circular(8.0)),
-            //           child: Center(
-            //               child: Text(
-            //             widget.password.length < 8 ? 'Weak' : 'Strong',
-            //             style: TextStyle(
-            //                 color: Colors.white,
-            //                 fontSize: 20.0,
-            //                 fontWeight: FontWeight.w600),
-            //           )),
-            //         )
-            //       ],
-            //     ),
-            //   ),
-            // )
           ],
         ),
       ),

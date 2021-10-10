@@ -16,93 +16,87 @@ class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[900],
+      backgroundColor: Color(0xff151922),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'Welcome To,',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              'Manage My Passwords',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'Free, Fast, Secure & Offline Password Manager.',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              'This App Will Securely Strore Your Passwords.',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w500),
-            ),
             SizedBox(
               height: 8.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Lottie.asset('assets/password.json', height: 280.0),
+                Text(
+                  'ManageMyPasswords',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: MediaQuery.of(context).size.width < 800
+                          ? 24.0
+                          : 35.0),
+                ),
               ],
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height - 600.0,
+              height: 18.0,
+            ),
+            Icon(
+              Icons.security_rounded,
+              color: Colors.white,
+              size: MediaQuery.of(context).size.width < 800 ? 150.0 : 200.0,
+            ),
+            SizedBox(
+              height: 40.0,
+            ),
+            Text(
+              'Free, Fast, Simple & Secure Password Manager',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize:
+                      MediaQuery.of(context).size.width < 800 ? 24.0 : 30.0),
+              textAlign: TextAlign.center,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Welcome to the best FREE password manager you can download this app is 100% free you can unlimited number of passwords to the app and there are ZERO ADS. Store all of your passwords securely. Enjoy !',
+                style: TextStyle(
+                    color: Colors.white70,
+                    fontSize:
+                        MediaQuery.of(context).size.width < 800 ? 14.0 : 20.0),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
             ),
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: GestureDetector(
-                      onTap: () => Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (_) => SecondScreen())),
-                      child: Container(
-                        height: 60.0,
-                        width: 200.0,
-                        decoration: BoxDecoration(
-                            color: Colors.red[500],
-                            borderRadius: BorderRadius.circular(80.0)),
-                        child: Center(
-                          child: Text(
-                            'Get Started',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: GestureDetector(
+                  onTap: () => Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (_) => SecondScreen())),
+                  child: Container(
+                    height: 60.0,
+                    width: MediaQuery.of(context).size.width - 70.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: Color(0xff2d6cdf)),
+                    child: Center(
+                      child: Text(
+                        'Get Started',
+                        style: TextStyle(color: Colors.white, fontSize: 24.0),
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
+            ),
+            SizedBox(
+              height: 40.0,
             ),
           ],
         ),
-      )),
+      ),
     );
   }
 }
