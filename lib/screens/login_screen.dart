@@ -42,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff151922),
       body: SafeArea(
           child: Column(
         children: [
@@ -51,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Text(
             'ManageMyPasswords',
             style: TextStyle(
-                color: Colors.blue[800],
+                color: Colors.white,
                 fontSize: 28.0,
                 fontWeight: FontWeight.bold),
           ),
@@ -74,14 +75,14 @@ class _LoginScreenState extends State<LoginScreen> {
           Text(
             'Welcome back!',
             style: TextStyle(
-                color: Colors.blue[900],
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 22.0),
           ),
           Text(
             'Log in to continue.',
             style: TextStyle(
-                color: Colors.blue[900],
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 16.0),
           ),
@@ -91,17 +92,23 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             height: 80.0,
             width: MediaQuery.of(context).size.width - 50.0,
-            child: TextField(
+            child: TextFormField(
+              style: TextStyle(color: Colors.white),
               maxLength: 60,
               controller: masterPassword,
-              onSubmitted: (value) {
+              onFieldSubmitted: (value) {
                 masterPassword.text = value;
               },
               decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.password_rounded),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.0)),
-                  hintText: 'Enter Your Password'),
+                prefixIcon: Icon(
+                  Icons.password_rounded,
+                  color: Colors.white,
+                ),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0)),
+                hintText: 'Enter Your Password',
+                hintStyle: TextStyle(color: Colors.white),
+              ),
             ),
           ),
           SizedBox(
@@ -138,7 +145,9 @@ class _LoginScreenState extends State<LoginScreen> {
               )),
             ),
           ),
-          SizedBox(height: 5.0,),
+          SizedBox(
+            height: 5.0,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

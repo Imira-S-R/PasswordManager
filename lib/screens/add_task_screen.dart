@@ -37,20 +37,21 @@ class _AddTaskState extends State<AddTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff151922),
         appBar: AppBar(
+          brightness: Brightness.dark,
           elevation: 0.0,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xff151922),
           centerTitle: false,
           title: Text(
             'Add New Password',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.white),
           ),
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: Colors.black,
+              color: Colors.white,
             ),
           ),
         ),
@@ -62,7 +63,7 @@ class _AddTaskState extends State<AddTask> {
               Text(
                 'Website Name',
                 style: TextStyle(
-                    color: Colors.black45,
+                    color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500),
               ),
@@ -72,14 +73,17 @@ class _AddTaskState extends State<AddTask> {
               Container(
                 height: 75.0,
                 width: MediaQuery.of(context).size.width - 40.0,
-                child: TextField(
+                child: TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
                   maxLength: 60,
                   controller: title,
-                  onSubmitted: (value) {
+                  onFieldSubmitted: (value) {
                     title.text = value;
                   },
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.title, size: 24,),
+                    
+                    prefixIcon: Icon(Icons.title, size: 24, color: Colors.white,),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
                   ),
@@ -91,7 +95,7 @@ class _AddTaskState extends State<AddTask> {
               Text(
                 'Username/Email',
                 style: TextStyle(
-                    color: Colors.black45,
+                    color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500),
               ),
@@ -101,14 +105,15 @@ class _AddTaskState extends State<AddTask> {
               Container(
                 height: 75.0,
                 width: MediaQuery.of(context).size.width - 40.0,
-                child: TextField(
+                child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   maxLength: 60,
                   controller: username,
-                  onSubmitted: (value) {
+                  onFieldSubmitted: (value) {
                     username.text = value;
                   },
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email_rounded, size: 24,),
+                    prefixIcon: Icon(Icons.email_rounded, size: 24, color: Colors.white,),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
                   ),
@@ -120,7 +125,7 @@ class _AddTaskState extends State<AddTask> {
               Text(
                 'Password',
                 style: TextStyle(
-                    color: Colors.black45,
+                    color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500),
               ),
@@ -130,14 +135,16 @@ class _AddTaskState extends State<AddTask> {
               Container(
                 height: 75.0,
                 width: MediaQuery.of(context).size.width - 40.0,
-                child: TextField(
+                child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   maxLength: 60,
                   controller: password,
-                  onSubmitted: (value) {
+                  onFieldSubmitted: (value) {
                     password.text = value;
                   },
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.password_rounded, size: 24,),
+                    prefixIcon: Icon(Icons.password_rounded, size: 24, color: Colors.white,),
+                    fillColor: Colors.white,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
                   ),

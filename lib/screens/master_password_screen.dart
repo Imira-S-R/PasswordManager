@@ -13,19 +13,19 @@ class _MasterPasswordScreenState extends State<MasterPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Color(0xff151922),
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.grey[100],
+        backgroundColor: Color(0xff151922),
         title: Text(
           'Master Password Settings',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
       ),
@@ -43,7 +43,7 @@ class _MasterPasswordScreenState extends State<MasterPasswordScreen> {
                 width: MediaQuery.of(context).size.width - 10.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(7.0),
-                  color: Colors.white,
+                  color: Color(0xff2E3647),
                 ),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(10.0, 18.0, 10.0, 10.0),
@@ -51,7 +51,7 @@ class _MasterPasswordScreenState extends State<MasterPasswordScreen> {
                     'Edit Master Password',
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.w500,
                         fontSize: 20.0),
                   ),

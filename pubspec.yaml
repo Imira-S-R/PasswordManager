@@ -32,6 +32,7 @@ dependencies:
   lottie: ^1.1.0
   page_transition: "^1.1.6"
   shared_preferences: ^2.0.7
+  encrypt: ^5.0.1
 
 dev_dependencies:
   flutter_test:

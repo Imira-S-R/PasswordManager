@@ -50,19 +50,19 @@ class _SecurityScreenState extends State<SecurityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Color(0xff151922),
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.grey[100],
+        backgroundColor: Color(0xff151922),
         centerTitle: true,
         title: Text(
           'Security',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.black,
+            color: Colors.white,
           ),
           onPressed: () => Navigator.pop(context),
         ),
@@ -75,7 +75,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
               height: 60.0,
               width: MediaQuery.of(context).size.width - 10.0,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Color(0xff2E3647),
                   borderRadius: BorderRadius.circular(8.0)),
               child: Padding(
                 padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
@@ -85,7 +85,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                     Text(
                       'Require Login At Startup',
                       style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontWeight: FontWeight.w500,
                           fontSize: 18.0),
                     ),
@@ -113,7 +113,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Flexible(child: Text(_message, maxLines: 3)),
+                Flexible(child: Text(_message, maxLines: 3, style: TextStyle(color: Colors.white),)),
               ],
             ),
             SizedBox(
@@ -134,7 +134,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                 width: MediaQuery.of(context).size.width - 10.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(7.0),
-                  color: Colors.white,
+                  color: Color(0xff2E3647),
                 ),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(10.0, 18.0, 10.0, 10.0),
@@ -142,7 +142,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                     'Master Password',
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.w500,
                         fontSize: 20.0),
                   ),

@@ -9,11 +9,11 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Color(0xff151922),
         appBar: AppBar(
           brightness: Brightness.dark,
           elevation: 0.0,
-          backgroundColor: Colors.blue[900],
+          backgroundColor: Color(0xff151922),
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
@@ -35,7 +35,7 @@ class Settings extends StatelessWidget {
                 child: Container(
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: Color(0xff151922),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30.0),
                       topRight: Radius.circular(30.0))),
@@ -96,7 +96,7 @@ class Settings extends StatelessWidget {
                         height: 60.0,
                         width: MediaQuery.of(context).size.width - 10.0,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xff2E3647),
                             borderRadius: BorderRadius.circular(8.0)),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -104,7 +104,7 @@ class Settings extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.security_rounded,
-                                color: Colors.black,
+                                color: Colors.white,
                                 size: 30.0,
                               ),
                               SizedBox(
@@ -118,9 +118,9 @@ class Settings extends StatelessWidget {
                                     Text(
                                       'Security',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 24.0),
+                                          color: Colors.white, fontSize: 24.0),
                                     ),
-                                    Icon(Icons.arrow_forward_ios_rounded)
+                                    Icon(Icons.arrow_forward_ios_rounded, color: Colors.white,)
                                   ],
                                 ),
                               ),
@@ -139,7 +139,7 @@ class Settings extends StatelessWidget {
                         height: 60.0,
                         width: MediaQuery.of(context).size.width - 10.0,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xff2E3647),
                             borderRadius: BorderRadius.circular(8.0)),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -147,7 +147,7 @@ class Settings extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.info_outline_rounded,
-                                color: Colors.black,
+                                color: Colors.white,
                                 size: 30.0,
                               ),
                               SizedBox(
@@ -161,9 +161,9 @@ class Settings extends StatelessWidget {
                                     Text(
                                       'About',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 24.0),
+                                          color: Colors.white, fontSize: 24.0),
                                     ),
-                                    Icon(Icons.arrow_forward_ios_rounded)
+                                    Icon(Icons.arrow_forward_ios_rounded, color: Colors.white,)
                                   ],
                                 ),
                               ),

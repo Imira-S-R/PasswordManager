@@ -51,20 +51,20 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff151922),
       appBar: AppBar(
         brightness: Brightness.dark,
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff151922),
         title: Text(
           'Password Generator',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
         ),
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new_rounded),
           onPressed: () => Navigator.pop(context),
-          color: Colors.black,
+          color: Colors.white,
         ),
       ),
       body: Column(
@@ -78,7 +78,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
             child: Text(
               'Generated Password',
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 16.0,
                   fontWeight: FontWeight.w500),
             ),
@@ -94,7 +94,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
                 width: MediaQuery.of(context).size.width - 50.0,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(7.0)),
-                    color: Colors.red),
+                    color: Color(0xff246EE9)),
                 child: Center(
                     child: Text(
                   _password,
@@ -112,7 +112,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
             child: Text(
               'LENGTH: $length',
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontWeight: FontWeight.w500,
                   fontSize: 14.0),
             ),
@@ -141,7 +141,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
             padding: const EdgeInsets.fromLTRB(23.0, 0.0, 23.0, 0.0),
             child: Text(
               'SETTINGS',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Colors.white, fontSize: 15.0),
             ),
           ),
           SizedBox(
@@ -154,7 +154,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
                 height: 50.0,
                 width: MediaQuery.of(context).size.width - 50.0,
                 decoration: BoxDecoration(
-                    color: Colors.red[500],
+                    color: Color(0xff2d6cdf),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -194,7 +194,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
                 height: 50.0,
                 width: MediaQuery.of(context).size.width - 50.0,
                 decoration: BoxDecoration(
-                    color: Colors.red[500],
+                    color: Color(0xff2d6cdf),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

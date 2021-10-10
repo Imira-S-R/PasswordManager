@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:password_manager/getStartedScreen/second_screen.dart';
@@ -68,31 +69,36 @@ class _FirstScreenState extends State<FirstScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height - 600.0,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () => Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (_) => SecondScreen())),
-                  child: Container(
-                    height: 60.0,
-                    width: 200.0,
-                    decoration: BoxDecoration(
-                        color: Colors.red[500],
-                        borderRadius: BorderRadius.circular(80.0)),
-                    child: Center(
-                      child: Text(
-                        'Get Started',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.bold),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: GestureDetector(
+                      onTap: () => Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (_) => SecondScreen())),
+                      child: Container(
+                        height: 60.0,
+                        width: 200.0,
+                        decoration: BoxDecoration(
+                            color: Colors.red[500],
+                            borderRadius: BorderRadius.circular(80.0)),
+                        child: Center(
+                          child: Text(
+                            'Get Started',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),

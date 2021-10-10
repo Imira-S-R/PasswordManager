@@ -69,11 +69,12 @@ class _HomeScreenState extends State<HomeScreen> {
             Icon(
               Icons.password_rounded,
               size: 50.0,
+              color: Colors.white,
             ),
             Text(
               'No Passwords Added',
               style: TextStyle(
-                  color: Colors.red,
+                  color: Colors.white,
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'SF'),
@@ -81,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               "Click on the '+' icon to add",
               style: TextStyle(
-                  color: Colors.red,
+                  color: Colors.white,
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold),
             ),
@@ -95,38 +96,44 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        tooltip: 'Add new password',
+        child: Container(
+          width: 60,
+          height: 60,
+          child: Icon(
+            Icons.add,
+            size: 30,
+          ),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                  colors: [Color(0xff0220D9), Color(0xff051360)])),
+        ),
         onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (_) => AddTask(
                       refershPasswords: refreshNotes,
                     ))),
-        backgroundColor: Colors.red,
-        splashColor: Colors.red[900],
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        tooltip: 'Add New Password',
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff151922),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
             floating: true,
             brightness: Brightness.dark,
-            backgroundColor: Colors.white,
-            title:
-                Text('ManageMyPassword', style: TextStyle(color: Colors.black)),
+            backgroundColor: Color(0xff151922),
+            title: Text('ManageMyPasswords',
+                style: TextStyle(color: Colors.white)),
             actions: [
               IconButton(
                   onPressed: () => Navigator.push(context,
                       MaterialPageRoute(builder: (_) => PasswordGeneratoe())),
-                  icon: Icon(Icons.security, color: Colors.black)),
+                  icon: Icon(Icons.security, color: Colors.white)),
               IconButton(
                   onPressed: () => Navigator.push(
                       context, MaterialPageRoute(builder: (_) => Settings())),
-                  icon: Icon(Icons.settings, color: Colors.black)),
+                  icon: Icon(Icons.settings, color: Colors.white)),
             ],
           ),
           SliverPadding(
@@ -134,221 +141,188 @@ class _HomeScreenState extends State<HomeScreen> {
             sliver: SliverToBoxAdapter(
                 child: Text('Your Passwords(${passwords.length})',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w500,
                     ))),
           ),
           SliverToBoxAdapter(child: SizedBox(height: 10.0)),
-          SliverList(
-              delegate: SliverChildBuilderDelegate((buildContext, index) {
-            return Column(
-              children: [
-                ListTile(
-                  leading: IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        if (selectedIndex == index) {
-                          setState(() {
-                            selectedIndex = -1;
-                          });
-                        } else {
-                          setState(() {
-                            showMenu = !showMenu;
-                            selectedIndex = index;
-                          });
-                        }
-                      },
-                      icon: Icon(Icons.arrow_downward_rounded)),
-                  title: Text(passwords[index].title,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 26.0,
-                          fontWeight: FontWeight.bold)),
-                  subtitle: Text(
-                    passwords[index].username == ''
-                        ? 'No Username'
-                        : passwords[index].username,
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w500),
-                  ),
-                  trailing: GestureDetector(
-                      onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => EditTask(
-                                  title: passwords[index].title,
-                                  username: passwords[index].username,
-                                  password: passwords[index].password,
-                                  id: passwords[index].id!,
-                                  refresh: refreshNotes))),
-                      child: Icon(
-                        Icons.edit,
-                        color: Colors.black,
-                      )),
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => PasswordViewer(
-                              title: passwords[index].title,
-                              username: passwords[index].username,
-                              password: passwords[index].password,
-                              index: index,
-                              id: passwords[index].id!,
-                              refresh: refreshNotes))),
-                ),
-                selectedIndex == index
-                    ? Menu(
-                        index: index,
-                        passwords: passwords,
-                        username: passwords[index].username,
-                        password: passwords[index].password,
-                      )
-                    : SizedBox.shrink()
-              ],
-            );
-          }, childCount: passwords.length))
+          passwords.length == 0
+              ? SliverToBoxAdapter(
+                  child: noPasswordsFound(),
+                )
+              : SliverList(
+                  delegate: SliverChildBuilderDelegate((buildContext, index) {
+                  return Column(
+                    children: [
+                      ListTile(
+                        title: Text(passwords[index].title,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 26.0,
+                                fontWeight: FontWeight.bold)),
+                        subtitle: Text(
+                          passwords[index].username == ''
+                              ? 'No Username'
+                              : passwords[index].username,
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w500),
+                        ),
+                        onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => PasswordViewer(
+                                    title: passwords[index].title,
+                                    username: passwords[index].username,
+                                    password: passwords[index].password,
+                                    index: index,
+                                    id: passwords[index].id!,
+                                    refresh: refreshNotes))),
+                      ),
+                    ],
+                  );
+                }, childCount: passwords.length))
         ],
       ),
     );
   }
 }
 
-class Menu extends StatefulWidget {
-  late int index;
-  late List<Password> passwords;
-  late String password;
-  late String username;
+// class Menu extends StatefulWidget {
+//   late int index;
+//   late List<Password> passwords;
+//   late String password;
+//   late String username;
 
-  Menu(
-      {required this.index,
-      required this.passwords,
-      required this.username,
-      required this.password});
+//   Menu(
+//       {required this.index,
+//       required this.passwords,
+//       required this.username,
+//       required this.password});
 
-  @override
-  _MenuState createState() => _MenuState();
-}
+//   @override
+//   _MenuState createState() => _MenuState();
+// }
 
-class _MenuState extends State<Menu> {
-  bool isVisible = false;
+// class _MenuState extends State<Menu> {
+//   bool isVisible = false;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // height: 100.0,
-      width: MediaQuery.of(context).size.width - 20.0,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 25.0,
-              offset: Offset(0.0, 0.9),
-            )
-          ],
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          )),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 12.0, right: 5.0, top: 8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Username',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16.0),
-                    ),
-                    Text(
-                      widget.passwords[widget.index].username,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 22.0),
-                    )
-                  ],
-                ),
-                IconButton(
-                    onPressed: () {
-                      Clipboard.setData(ClipboardData(text: widget.username));
-                    },
-                    icon: Icon(Icons.copy))
-              ],
-            ),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Password',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16.0),
-                    ),
-                    Visibility(
-                      visible: isVisible,
-                      child: Text(
-                        widget.passwords[widget.index].password,
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                    !isVisible
-                        ? Text(
-                            isVisible
-                                ? ''
-                                : '*' *
-                                    widget.passwords[widget.index].password
-                                        .length,
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontSize: 28.0,
-                            ),
-                          )
-                        : SizedBox.shrink(),
-                  ],
-                ),
-                Spacer(),
-                IconButton(
-                    onPressed: () {
-                      Clipboard.setData(ClipboardData(text: widget.password));
-                    },
-                    icon: Icon(Icons.copy)),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      isVisible = !isVisible;
-                    });
-                  },
-                  icon: Icon(isVisible
-                      ? Icons.visibility_off_rounded
-                      : Icons.visibility_rounded),
-                  tooltip: isVisible ? 'Hide' : 'Show',
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 5.0,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       // height: 100.0,
+//       width: MediaQuery.of(context).size.width - 20.0,
+//       decoration: BoxDecoration(
+//           color: Colors.white,
+//           boxShadow: [
+//             BoxShadow(
+//               color: Colors.black26,
+//               blurRadius: 25.0,
+//               offset: Offset(0.0, 0.9),
+//             )
+//           ],
+//           borderRadius: BorderRadius.all(
+//             Radius.circular(8.0),
+//           )),
+//       child: Padding(
+//         padding: const EdgeInsets.only(left: 12.0, right: 5.0, top: 8.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     Text(
+//                       'Username',
+//                       style: TextStyle(
+//                           color: Colors.black,
+//                           fontWeight: FontWeight.w600,
+//                           fontSize: 16.0),
+//                     ),
+//                     Text(
+//                       widget.passwords[widget.index].username,
+//                       maxLines: 1,
+//                       overflow: TextOverflow.ellipsis,
+//                       style: TextStyle(
+//                           color: Colors.red,
+//                           fontWeight: FontWeight.w500,
+//                           fontSize: 22.0),
+//                     )
+//                   ],
+//                 ),
+//                 IconButton(
+//                     onPressed: () {
+//                       Clipboard.setData(ClipboardData(text: widget.username));
+//                     },
+//                     icon: Icon(Icons.copy))
+//               ],
+//             ),
+//             Row(
+//               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     Text(
+//                       'Password',
+//                       style: TextStyle(
+//                           color: Colors.black,
+//                           fontWeight: FontWeight.w600,
+//                           fontSize: 16.0),
+//                     ),
+//                     Visibility(
+//                       visible: isVisible,
+//                       child: Text(
+//                         widget.passwords[widget.index].password,
+//                         style: TextStyle(
+//                             color: Colors.red,
+//                             fontSize: 22.0,
+//                             fontWeight: FontWeight.w600),
+//                       ),
+//                     ),
+//                     !isVisible
+//                         ? Text(
+//                             isVisible
+//                                 ? ''
+//                                 : '*' *
+//                                     widget.passwords[widget.index].password
+//                                         .length,
+//                             style: TextStyle(
+//                               color: Colors.red,
+//                               fontSize: 28.0,
+//                             ),
+//                           )
+//                         : SizedBox.shrink(),
+//                   ],
+//                 ),
+//                 Spacer(),
+//                 IconButton(
+//                     onPressed: () {
+//                       Clipboard.setData(ClipboardData(text: widget.password));
+//                     },
+//                     icon: Icon(Icons.copy)),
+//                 IconButton(
+//                   onPressed: () {
+//                     setState(() {
+//                       isVisible = !isVisible;
+//                     });
+//                   },
+//                   icon: Icon(isVisible
+//                       ? Icons.visibility_off_rounded
+//                       : Icons.visibility_rounded),
+//                   tooltip: isVisible ? 'Hide' : 'Show',
+//                 )
+//               ],
+//             ),
+//             const SizedBox(
+//               height: 5.0,
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

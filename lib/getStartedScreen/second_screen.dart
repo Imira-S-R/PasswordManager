@@ -29,6 +29,7 @@ class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff151922),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -41,24 +42,26 @@ class _SecondScreenState extends State<SecondScreen> {
               Text(
                 'Enter Master Password',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 26.0,
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 10.0,
               ),
-              TextField(
+              TextFormField(
+                style: TextStyle(color: Colors.white),
                 maxLength: 60,
                 controller: masterPassword,
-                onSubmitted: (value) {
+                onFieldSubmitted: (value) {
                   masterPassword.text = value;
                 },
                 decoration: InputDecoration(
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
                     ),
-                    hintText: 'Enter Master Password'),
+                    hintText: 'Enter Master Password',
+                    hintStyle: TextStyle(color: Colors.white)),
               ),
               SizedBox(
                 height: 10.0,
@@ -77,7 +80,7 @@ class _SecondScreenState extends State<SecondScreen> {
                 height: 60.0,
                 width: MediaQuery.of(context).size.width - 10.0,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xff2E3647),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
@@ -87,7 +90,7 @@ class _SecondScreenState extends State<SecondScreen> {
                       Text(
                         'Require Login At Startup',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontWeight: FontWeight.w500,
                             fontSize: 18.0),
                       ),
@@ -111,7 +114,12 @@ class _SecondScreenState extends State<SecondScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Flexible(child: Text(_message, maxLines: 3)),
+                  Flexible(
+                      child: Text(
+                    _message,
+                    maxLines: 3,
+                    style: TextStyle(color: Colors.white),
+                  )),
                 ],
               ),
               SizedBox(

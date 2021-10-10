@@ -47,20 +47,21 @@ class _EditTaskState extends State<EditTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff151922),
         appBar: AppBar(
+          brightness: Brightness.dark,
           elevation: 0.0,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xff151922),
           centerTitle: false,
           title: Text(
             'Edit Password',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.white),
           ),
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: Colors.black,
+              color: Colors.white,
             ),
           ),
         ),
@@ -75,7 +76,7 @@ class _EditTaskState extends State<EditTask> {
               Text(
                 'Website Name',
                 style: TextStyle(
-                    color: Colors.black45,
+                    color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500),
               ),
@@ -86,6 +87,7 @@ class _EditTaskState extends State<EditTask> {
                 height: 75.0,
                 width: MediaQuery.of(context).size.width - 40.0,
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   maxLength: 60,
                   initialValue: widget.title,
                   onChanged: (value) {
@@ -95,6 +97,7 @@ class _EditTaskState extends State<EditTask> {
                     prefixIcon: Icon(
                       Icons.title,
                       size: 24,
+                      color: Colors.white,
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
@@ -107,7 +110,7 @@ class _EditTaskState extends State<EditTask> {
               Text(
                 'Username/Email',
                 style: TextStyle(
-                    color: Colors.black45,
+                    color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500),
               ),
@@ -118,6 +121,7 @@ class _EditTaskState extends State<EditTask> {
                 height: 75.0,
                 width: MediaQuery.of(context).size.width - 40.0,
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   maxLength: 60,
                   initialValue: widget.username,
                   onChanged: (value) {
@@ -127,6 +131,7 @@ class _EditTaskState extends State<EditTask> {
                     prefixIcon: Icon(
                       Icons.email,
                       size: 24,
+                      color: Colors.white,
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
@@ -139,7 +144,7 @@ class _EditTaskState extends State<EditTask> {
               Text(
                 'Password',
                 style: TextStyle(
-                    color: Colors.black45,
+                    color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500),
               ),
@@ -150,6 +155,7 @@ class _EditTaskState extends State<EditTask> {
                 height: 75.0,
                 width: MediaQuery.of(context).size.width - 40.0,
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   maxLength: 60,
                   initialValue: widget.password,
                   onChanged: (value) {
@@ -159,6 +165,7 @@ class _EditTaskState extends State<EditTask> {
                     prefixIcon: Icon(
                       Icons.password_rounded,
                       size: 24,
+                      color: Colors.white,
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),

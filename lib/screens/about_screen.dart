@@ -11,18 +11,18 @@ class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: Color(0xff151922),
         appBar: AppBar(
           elevation: 0.0,
-          backgroundColor: Colors.grey[100],
+          backgroundColor: Color(0xff151922),
           title: Text(
             'About',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.white),
           ),
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () => Navigator.pop(context),
           ),
@@ -35,7 +35,7 @@ class _AboutScreenState extends State<AboutScreen> {
                 height: 60.0,
                 width: MediaQuery.of(context).size.width - 30.0,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xff2E3647),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -45,7 +45,7 @@ class _AboutScreenState extends State<AboutScreen> {
                       Text(
                         'Version',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontWeight: FontWeight.w500,
                             fontSize: 23.0),
                       ),
@@ -67,14 +67,14 @@ class _AboutScreenState extends State<AboutScreen> {
                 height: 60.0,
                 width: MediaQuery.of(context).size.width - 30.0,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xff2E3647),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Padding(
                     padding: const EdgeInsets.fromLTRB(10.0, 17.0, 10.0, 0.0),
                     child: Text(
                       'Created By Imira.',
                       style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 23.0,
                           fontWeight: FontWeight.w600),
                     )),
