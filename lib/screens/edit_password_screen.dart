@@ -94,6 +94,21 @@ class _EditTaskState extends State<EditTask> {
                     title.text = value;
                   },
                   decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 2.0
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white10,
+                        width: 2.0,
+                      ),
+                    ),
+                    counterStyle: TextStyle(color: Colors.white),
                     prefixIcon: Icon(
                       Icons.title,
                       size: 24,
@@ -128,6 +143,21 @@ class _EditTaskState extends State<EditTask> {
                     username.text = value;
                   },
                   decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 2.0
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white10,
+                        width: 2.0,
+                      ),
+                    ),
+                    counterStyle: TextStyle(color: Colors.white),
                     prefixIcon: Icon(
                       Icons.email,
                       size: 24,
@@ -162,6 +192,21 @@ class _EditTaskState extends State<EditTask> {
                     password.text = value;
                   },
                   decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 2.0
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white10,
+                        width: 2.0,
+                      ),
+                    ),
+                    counterStyle: TextStyle(color: Colors.white),
                     prefixIcon: Icon(
                       Icons.password_rounded,
                       size: 24,
@@ -250,10 +295,7 @@ class _EditTaskState extends State<EditTask> {
                   height: 60.0,
                   width: MediaQuery.of(context).size.width - 40.0,
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [Color(0xffFF0021), Color(0xffB8041B)]),
+                      color: Color(0xff14279B),
                       borderRadius: BorderRadius.circular(8.0)),
                   child: Center(
                     child: Text(

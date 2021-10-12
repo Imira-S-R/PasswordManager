@@ -38,6 +38,7 @@ class _FirstEditScreenState extends State<FirstEditScreen> {
     return Scaffold(
       backgroundColor: Color(0xff2E3647),
       appBar: AppBar(
+        brightness: Brightness.dark,
         elevation: 0.0,
         backgroundColor: Color(0xff2E3647),
         leading: IconButton(
@@ -93,6 +94,21 @@ class _FirstEditScreenState extends State<FirstEditScreen> {
                   masterPassword.text = value;
                 },
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 2.0
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white10,
+                        width: 2.0,
+                      ),
+                    ),
+                    counterStyle: TextStyle(color: Colors.white),
                     prefixIcon: Icon(Icons.password_rounded, color: Colors.white,),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),

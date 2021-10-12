@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:password_manager/db/password_database.dart';
 import 'package:password_manager/model/password_model.dart';
 import 'package:password_manager/screens/add_task_screen.dart';
-import 'package:password_manager/screens/edit_password_screen.dart';
 import 'package:password_manager/screens/password_generator_screen.dart';
 import 'package:password_manager/screens/password_viewer_screen.dart';
 import 'package:password_manager/screens/settings_screen.dart';
@@ -102,12 +101,11 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 60,
           child: Icon(
             Icons.add,
-            size: 30,
+            size: 35,
           ),
           decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: LinearGradient(
-                  colors: [Color(0xff0220D9), Color(0xff051360)])),
+              color: Color(0xff0F4DF3)),
         ),
         onPressed: () => Navigator.push(
             context,

@@ -13,6 +13,7 @@ class _AboutScreenState extends State<AboutScreen> {
     return Scaffold(
         backgroundColor: Color(0xff151922),
         appBar: AppBar(
+          brightness: Brightness.dark,
           elevation: 0.0,
           backgroundColor: Color(0xff151922),
           title: Text(
@@ -50,9 +51,9 @@ class _AboutScreenState extends State<AboutScreen> {
                             fontSize: 23.0),
                       ),
                       Text(
-                        '1.8.6',
+                        '1.9.0',
                         style: TextStyle(
-                            color: Colors.red,
+                            color: Colors.white,
                             fontSize: 23.0,
                             fontWeight: FontWeight.w800),
                       )

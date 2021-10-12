@@ -94,7 +94,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
                 width: MediaQuery.of(context).size.width - 50.0,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(7.0)),
-                    color: Color(0xff246EE9)),
+                    color: Color(0xff2E3647)),
                 child: Center(
                     child: Text(
                   _password,
@@ -154,7 +154,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
                 height: 50.0,
                 width: MediaQuery.of(context).size.width - 50.0,
                 decoration: BoxDecoration(
-                    color: Color(0xff2d6cdf),
+                    color: Color(0xff2E3647),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -194,7 +194,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
                 height: 50.0,
                 width: MediaQuery.of(context).size.width - 50.0,
                 decoration: BoxDecoration(
-                    color: Color(0xff2d6cdf),
+                    color: Color(0xff2E3647),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -273,14 +273,11 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
                   height: 60.0,
                   width: MediaQuery.of(context).size.width - 50.0,
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [Color(0xffD50000), Color(0xffAF0D0D)]),
+                      color: Color(0xff344055),
                       borderRadius: BorderRadius.circular(8.0)),
                   child: Center(
                     child: Text(
-                      'Copy',
+                      'Copy To Clipboard',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.white,

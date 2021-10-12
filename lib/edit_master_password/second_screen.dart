@@ -36,6 +36,7 @@ class _SecondEditScreenState extends State<SecondEditScreen> {
     return Scaffold(
       backgroundColor: Color(0xff2E3647),
       appBar: AppBar(
+        brightness: Brightness.dark,
         elevation: 0.0,
         backgroundColor: Color(0xff2E3647),
         leading: IconButton(
@@ -90,10 +91,26 @@ class _SecondEditScreenState extends State<SecondEditScreen> {
                   newMasterPassword.text = value;
                 },
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.password_rounded, color: Colors.white,),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: Colors.white, width: 2.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white10,
+                        width: 2.0,
+                      ),
+                    ),
+                    counterStyle: TextStyle(color: Colors.white),
+                    prefixIcon: Icon(
+                      Icons.password_rounded,
+                      color: Colors.white,
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
-                    hintText: 'Enter New Password', hintStyle: TextStyle(color: Colors.white)),
+                    hintText: 'Enter New Password',
+                    hintStyle: TextStyle(color: Colors.white)),
               ),
             ),
             SizedBox(
@@ -108,7 +125,7 @@ class _SecondEditScreenState extends State<SecondEditScreen> {
                       id: users[0].id);
                   UserDatabase.instance.update(user);
                   Navigator.pop(context);
-                } else if ( newMasterPassword.text == '') {
+                } else if (newMasterPassword.text == '') {
                   setState(() {
                     status = "Password Can't Be Empty";
                   });
@@ -134,7 +151,9 @@ class _SecondEditScreenState extends State<SecondEditScreen> {
                 )),
               ),
             ),
-            SizedBox(height: 5.0,),
+            SizedBox(
+              height: 5.0,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

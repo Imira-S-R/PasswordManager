@@ -84,7 +84,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(
-                height: 40.0,
+                height: 8.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.security_rounded,
+                    color: Colors.white,
+                    size:
+                        MediaQuery.of(context).size.width < 800 ? 120.0 : 140.0,
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 20.0,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
@@ -93,28 +107,42 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(color: Colors.white70),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 80.0,
-                  width: MediaQuery.of(context).size.width,
-                  child: TextFormField(
-                    style: TextStyle(color: Colors.white),
-                    maxLength: 60,
-                    controller: masterPassword,
-                    onFieldSubmitted: (value) {
-                      masterPassword.text = value;
-                    },
-                    decoration: InputDecoration(
-                      counterStyle: TextStyle(color: Colors.white),
-                      prefixIcon: Icon(
-                        Icons.password_rounded,
-                        color: Colors.white,
+              SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80.0,
+                    width: MediaQuery.of(context).size.width,
+                    child: TextFormField(
+                      style: TextStyle(color: Colors.white),
+                      maxLength: 60,
+                      controller: masterPassword,
+                      onFieldSubmitted: (value) {
+                        masterPassword.text = value;
+                      },
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.0),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(
+                            color: Colors.white10,
+                            width: 2.0,
+                          ),
+                        ),
+                        counterStyle: TextStyle(color: Colors.white),
+                        prefixIcon: Icon(
+                          Icons.password_rounded,
+                          color: Colors.white,
+                        ),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        hintText: 'Enter Your Password',
+                        hintStyle: TextStyle(color: Colors.white),
                       ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.0)),
-                      hintText: 'Enter Your Password',
-                      hintStyle: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
@@ -140,13 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: MediaQuery.of(context).size.width - 20.0,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8.0),
-                            gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomLeft,
-                                colors: [
-                                  Color(0xffF12711),
-                                  Color(0xffD31400)
-                                ])),
+                            color: Color(0xff14279B)),
                         child: Center(
                           child: Text(
                             'Log in',
@@ -157,12 +179,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ))),
+              SizedBox(
+                height: 8.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     status,
-                    style: TextStyle(color: Colors.red[900]),
+                    style: TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
                 ],
               )

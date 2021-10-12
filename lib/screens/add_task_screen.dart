@@ -82,8 +82,23 @@ class _AddTaskState extends State<AddTask> {
                     title.text = value;
                   },
                   decoration: InputDecoration(
-                    
-                    prefixIcon: Icon(Icons.title, size: 24, color: Colors.white,),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: Colors.white, width: 2.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white10,
+                        width: 2.0,
+                      ),
+                    ),
+                    counterStyle: TextStyle(color: Colors.white),
+                    prefixIcon: Icon(
+                      Icons.title,
+                      size: 24,
+                      color: Colors.white,
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
                   ),
@@ -113,7 +128,23 @@ class _AddTaskState extends State<AddTask> {
                     username.text = value;
                   },
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email_rounded, size: 24, color: Colors.white,),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: Colors.white, width: 2.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white10,
+                        width: 2.0,
+                      ),
+                    ),
+                    counterStyle: TextStyle(color: Colors.white),
+                    prefixIcon: Icon(
+                      Icons.email_rounded,
+                      size: 24,
+                      color: Colors.white,
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
                   ),
@@ -143,7 +174,23 @@ class _AddTaskState extends State<AddTask> {
                     password.text = value;
                   },
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.password_rounded, size: 24, color: Colors.white,),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: Colors.white, width: 2.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white10,
+                        width: 2.0,
+                      ),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.password_rounded,
+                      size: 24,
+                      color: Colors.white,
+                    ),
+                    counterStyle: TextStyle(color: Colors.white),
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0)),
@@ -179,10 +226,7 @@ class _AddTaskState extends State<AddTask> {
                   height: 60.0,
                   width: MediaQuery.of(context).size.width - 50.0,
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [Color(0xffFF0021), Color(0xffB8041B)]),
+                      color: Color(0xff14279B),
                       borderRadius: BorderRadius.circular(8.0)),
                   child: Center(
                     child: Text(
@@ -196,11 +240,16 @@ class _AddTaskState extends State<AddTask> {
                   ),
                 ),
               ),
-              SizedBox(height: 5.0,),
+              SizedBox(
+                height: 5.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(status, style: TextStyle(color: Colors.red, fontSize: 14.0),),
+                  Text(
+                    status,
+                    style: TextStyle(color: Colors.white, fontSize: 16.0),
+                  ),
                 ],
               )
             ],

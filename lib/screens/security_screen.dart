@@ -52,6 +52,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
     return Scaffold(
       backgroundColor: Color(0xff151922),
       appBar: AppBar(
+        brightness: Brightness.dark,
         elevation: 0.0,
         backgroundColor: Color(0xff151922),
         centerTitle: true,
