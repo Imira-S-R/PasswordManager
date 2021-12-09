@@ -25,3 +25,8 @@ flutter run
 ```
 ## About
 The whole app is created by Imira Randeniya.
+
+## License
+Copyright (c) Imira Randeniya. All rights reserved.
+
+Licensed under the [MIT License](./LICENSE).
