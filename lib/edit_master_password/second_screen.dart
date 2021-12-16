@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/user_database.dart';
+import 'package:password_manager/encrypt/encrypter.dart';
 import 'package:password_manager/model/user_info_model.dart';
 
 class SecondEditScreen extends StatefulWidget {
@@ -121,7 +122,7 @@ class _SecondEditScreenState extends State<SecondEditScreen> {
                 if (newMasterPassword.text != '') {
                   var user = User(
                       loginRequired: users[0].loginRequired,
-                      masterpswd: newMasterPassword.text,
+                      masterpswd: Encrypt.instance.encryptOrDecryptText(newMasterPassword.text, true),
                       id: users[0].id);
                   UserDatabase.instance.update(user);
                   Navigator.pop(context);

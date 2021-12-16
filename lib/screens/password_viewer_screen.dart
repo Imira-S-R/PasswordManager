@@ -75,6 +75,7 @@ class _PasswordViewerState extends State<PasswordViewer> {
               icon: Icon(Icons.edit, color: Colors.white)),
           IconButton(
               onPressed: () {
+                print(passwords[0].password);
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {

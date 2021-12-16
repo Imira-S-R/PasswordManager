@@ -4,11 +4,13 @@ import 'package:password_manager/getStartedScreen/first_screen.dart';
 import 'package:password_manager/getStartedScreen/second_screen.dart';
 import 'package:password_manager/screens/home_screen.dart';
 import 'package:password_manager/screens/login_screen.dart';
-
+import 'package:encrypt/encrypt.dart' as encrypt;
 import 'model/user_info_model.dart';
 
 void main() {
+
   runApp(MyApp());
+  
 }
 
 class MyApp extends StatefulWidget {

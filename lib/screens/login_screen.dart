@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/user_database.dart';
+import 'package:password_manager/encrypt/encrypter.dart';
 import 'package:password_manager/model/user_info_model.dart';
 import 'package:password_manager/screens/home_screen.dart';
 
@@ -53,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'ManageMyPasswords',
@@ -69,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Log in',
@@ -154,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.only(left: 10.0),
                   child: GestureDetector(
                       onTap: () {
-                        if (masterPassword.text == users[0].masterpswd) {
+                        if (masterPassword.text == Encrypt.instance.encryptOrDecryptText(users[0].masterpswd, false)) {
                           Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (_) => HomeScreen()));
                         } else {

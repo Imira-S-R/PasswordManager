@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/user_database.dart';
+import 'package:password_manager/encrypt/encrypter.dart';
 import 'package:password_manager/model/user_info_model.dart';
 import 'package:password_manager/screens/home_screen.dart';
 
@@ -61,6 +62,7 @@ class _SecondScreenState extends State<SecondScreen> {
                       borderSide: BorderSide(color: Colors.grey),
                     ),
                     hintText: 'Enter Master Password',
+                    counterStyle: TextStyle(color: Colors.white),
                     hintStyle: TextStyle(color: Colors.white)),
               ),
               SizedBox(
@@ -128,31 +130,33 @@ class _SecondScreenState extends State<SecondScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: GestureDetector(
-                      onTap: () {
-                        var user = User(
-                            loginRequired: requiredLogin,
-                            masterpswd: masterPassword.text);
-                        UserDatabase.instance.create(user);
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (_) => HomeScreen()));
-                      },
-                      child: Container(
-                        height: 60.0,
-                        width: 200.0,
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(80.0)),
-                        child: Center(
-                          child: Text(
-                            'Done',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: GestureDetector(
+                        onTap: () {
+                          var user = User(
+                              loginRequired: requiredLogin,
+                              masterpswd: Encrypt.instance.encryptOrDecryptText(masterPassword.text, true));
+                          UserDatabase.instance.create(user);
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (_) => HomeScreen()));
+                        },
+                        child: Container(
+                          height: 60.0,
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(80.0)),
+                          child: Center(
+                            child: Text(
+                              'Done',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),

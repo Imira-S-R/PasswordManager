@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/password_database.dart';
+import 'package:password_manager/encrypt/encrypter.dart';
 import 'package:password_manager/model/password_model.dart';
 import 'package:password_manager/screens/add_task_screen.dart';
 import 'package:password_manager/screens/password_generator_screen.dart';
@@ -154,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Column(
                     children: [
                       ListTile(
-                        title: Text(passwords[index].title,
+                        title: Text(Encrypt.instance.encryptOrDecryptText(passwords[index].title, false),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 26.0,
@@ -162,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         subtitle: Text(
                           passwords[index].username == ''
                               ? 'No Username'
-                              : passwords[index].username,
+                              : Encrypt.instance.encryptOrDecryptText(passwords[index].username, false),
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.w500),
                         ),
@@ -170,9 +171,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             MaterialPageRoute(
                                 builder: (_) => PasswordViewer(
-                                    title: passwords[index].title,
-                                    username: passwords[index].username,
-                                    password: passwords[index].password,
+                                    title: Encrypt.instance.encryptOrDecryptText(passwords[index].title, false),
+                                    username: Encrypt.instance.encryptOrDecryptText(passwords[index].username, false),
+                                    password: Encrypt.instance.encryptOrDecryptText(passwords[index].password, false),
                                     index: index,
                                     id: passwords[index].id!,
                                     refresh: refreshNotes))),

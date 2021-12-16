@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/password_database.dart';
+import 'package:password_manager/encrypt/encrypter.dart';
 import 'package:password_manager/model/password_model.dart';
 
 class EditTask extends StatefulWidget {
@@ -228,63 +229,63 @@ class _EditTaskState extends State<EditTask> {
                     Navigator.pop(context);
                   } else if (title.text == '' && username.text == '') {
                     var p = Password(
-                        title: widget.title,
-                        username: widget.username,
-                        password: password.text,
+                        title: Encrypt.instance.encryptOrDecryptText(widget.title, true),
+                        username: Encrypt.instance.encryptOrDecryptText(widget.username, true),
+                        password: Encrypt.instance.encryptOrDecryptText(password.text, true),
                         id: widget.id);
                     PasswordDatabase.instance.update(p);
                     widget.refresh();
                     Navigator.pop(context);
                   } else if (title.text == '' && password.text == '') {
                     var p = Password(
-                        title: widget.title,
-                        username: username.text,
-                        password: widget.password,
+                        title: Encrypt.instance.encryptOrDecryptText(widget.title, true),
+                        username: Encrypt.instance.encryptOrDecryptText(username.text, true),
+                        password: Encrypt.instance.encryptOrDecryptText(widget.password, true),
                         id: widget.id);
                     PasswordDatabase.instance.update(p);
                     widget.refresh();
                     Navigator.pop(context);
                   } else if (username.text == '' && password.text == '') {
                     var p = Password(
-                        title: title.text,
-                        username: widget.username,
-                        password: widget.password,
+                        title: Encrypt.instance.encryptOrDecryptText(title.text, true),
+                        username: Encrypt.instance.encryptOrDecryptText(widget.username, true),
+                        password: Encrypt.instance.encryptOrDecryptText(widget.password, true),
                         id: widget.id);
                     PasswordDatabase.instance.update(p);
                     widget.refresh();
                     Navigator.pop(context);
                   } else if (username.text == '') {
                     var p = Password(
-                        title: title.text,
-                        username: widget.username,
-                        password: password.text,
+                        title: Encrypt.instance.encryptOrDecryptText(title.text, true),
+                        username: Encrypt.instance.encryptOrDecryptText(widget.username, true),
+                        password: Encrypt.instance.encryptOrDecryptText(password.text, true),
                         id: widget.id);
                     PasswordDatabase.instance.update(p);
                     widget.refresh();
                     Navigator.pop(context);
                   } else if (title.text == '') {
                     var p = Password(
-                        title: widget.title,
-                        username: username.text,
-                        password: password.text,
+                        title: Encrypt.instance.encryptOrDecryptText(widget.title, true),
+                        username: Encrypt.instance.encryptOrDecryptText(username.text, true),
+                        password: Encrypt.instance.encryptOrDecryptText(password.text, true),
                         id: widget.id);
                     PasswordDatabase.instance.update(p);
                     widget.refresh();
                     Navigator.pop(context);
                   } else if (password.text == '') {
                     var p = Password(
-                        title: title.text,
-                        username: username.text,
-                        password: widget.password,
+                        title: Encrypt.instance.encryptOrDecryptText(title.text, true),
+                        username: Encrypt.instance.encryptOrDecryptText(username.text, true),
+                        password: Encrypt.instance.encryptOrDecryptText(widget.password, true),
                         id: widget.id);
                     PasswordDatabase.instance.update(p);
                     widget.refresh();
                     Navigator.pop(context);
                   } else {
                     var p = Password(
-                        title: title.text,
-                        username: username.text,
-                        password: password.text,
+                        title: Encrypt.instance.encryptOrDecryptText(title.text, true),
+                        username: Encrypt.instance.encryptOrDecryptText(username.text, true),
+                        password: Encrypt.instance.encryptOrDecryptText(password.text, true),
                         id: widget.id);
                     PasswordDatabase.instance.update(p);
                     widget.refresh();

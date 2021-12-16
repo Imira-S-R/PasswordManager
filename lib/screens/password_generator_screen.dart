@@ -28,7 +28,7 @@ class _PasswordGeneratoeState extends State<PasswordGeneratoe> {
 
   String generateRandomString(double len) {
     int _length = length.toInt();
-    var r = Random();
+    var r = Random.secure();
     const _chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz';
     const _charsWithSymbols =
         'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz!@#%^&*()';

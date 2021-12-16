@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/user_database.dart';
 import 'package:password_manager/edit_master_password/second_screen.dart';
+import 'package:password_manager/encrypt/encrypter.dart';
 import 'package:password_manager/getStartedScreen/second_screen.dart';
 import 'package:password_manager/model/user_info_model.dart';
 
@@ -119,7 +120,7 @@ class _FirstEditScreenState extends State<FirstEditScreen> {
             SizedBox(height: 10.0),
             GestureDetector(
               onTap: () {
-                if (masterPassword.text == users[0].masterpswd) {
+                if (masterPassword.text == Encrypt.instance.encryptOrDecryptText(users[0].masterpswd, false)) {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (_) => SecondEditScreen()));
                 } else {

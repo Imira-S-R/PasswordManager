@@ -1,5 +1,7 @@
+import 'package:encrypt/encrypt.dart';
 import 'package:flutter/material.dart';
 import 'package:password_manager/db/password_database.dart';
+import 'package:password_manager/encrypt/encrypter.dart';
 import 'package:password_manager/model/password_model.dart';
 
 class AddTask extends StatefulWidget {
@@ -213,10 +215,15 @@ class _AddTaskState extends State<AddTask> {
                       status = "Title And Password Are Compulsory";
                     });
                   } else {
+                    
+                    final encryptedText = Encrypt.instance.encryptOrDecryptText(title.text, true);
+                    final encryptedUsername = Encrypt.instance.encryptOrDecryptText(username.text, true);
+                    final encryptedPassword = Encrypt.instance.encryptOrDecryptText(password.text, true);
+
                     var passwordss = Password(
-                        title: title.text,
-                        username: username.text,
-                        password: password.text);
+                        title: encryptedText,
+                        username: encryptedUsername,
+                        password: encryptedPassword);
                     PasswordDatabase.instance.create(passwordss);
                     widget.refershPasswords();
                     Navigator.pop(context);
