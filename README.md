@@ -1,6 +1,8 @@
 # ManageMyPasswords
 ManageMyPasswords is a free, fast, simple and secure password manager you can use to store all of your passwords securely.
 The app updates regularly and the latest version is available in the [Galaxy Store](https://galaxystore.samsung.com/detail/com.example.password_manager).
+<br>
+Find the CLI Version [Here.](https://github.com/Imira-S-R/PasswordManagerCLI/tree/main)
 
 ## Features
 - The whole app is FREE, you can add unlimited number of passwords and there are NO ADS.
